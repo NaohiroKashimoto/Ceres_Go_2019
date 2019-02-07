@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/prometheus/common/log"
 	"io"
+	"log"
 	"net/http"
 )
 

@@ -2,6 +2,7 @@ package main
 
 import (
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -20,5 +21,5 @@ func main() {
 	http.HandleFunc("/ceres", ceresHandler)
 	http.HandleFunc("/", defaultHandler)
 
-	http.ListenAndServe(":8080", nil)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
