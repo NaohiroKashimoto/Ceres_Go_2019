@@ -1,0 +1,24 @@
+version: '2.3'
+
+# ネットワーク設定
+networks:
+  services:
+    driver: bridge
+# コンテナ
+services:
+  db:
+    image: 'mysql:5.7'
+    environment:
+      TZ: 'Asia/Tokyo'
+      MYSQL_ROOT_PASSWORD: 'ceres'
+      MYSQL_USER: 'ceres'
+      MYSQL_DATABASE: 'ceres'
+    volumes:
+      - "./docker/mysql/conf.d:/etc/mysql/conf.d"
+      - "./docker/mysql/init.d:/docker-entrypoint-initdb.d"
+    ports:
+      - "3306:3306"
+    networks:
+      - services
+
+
